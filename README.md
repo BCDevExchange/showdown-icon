@@ -18,6 +18,6 @@ and ```<i class="fa fa-home"></i>``` with ```[fa-home]```.
 
 ```js
 var converter = new Showdown.converter({ extensions: ['icon'] });
-alert(converter.makeHtml('@glyphicon-envelope'));
-alert(converter.makeHtml('@fa-home'));
+alert(converter.makeHtml('[glyphicon-envelope]'));
+alert(converter.makeHtml('[fa-home]'));
 ```
