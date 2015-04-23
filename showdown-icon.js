@@ -8,15 +8,25 @@
   var a = function(a) {
     return [{
       type: "lang",
-      regex: "\\B(\\\\)?@glyphicon-([\\S]+)\\b",
+      regex: "\\[glyphicon-([A-Za-z\\-]+) *([0-9]*)\\]",
       replace: function(a, b, c) {
-        return b === "\\" ? a : '<span class="glyphicon glyphicon-' + c + '">' + "</span>"
+        if(c) {
+          return b === "\\" ? a : '<span class="glyphicon glyphicon-' + b + '" style="font-size: ' + c + 'px;">' + "</span>"
+        }
+        else {
+          return b === "\\" ? a : '<span class="glyphicon glyphicon-' + b + '">' + "</span>"
+        }
       }
     }, {
       type: "lang",
-      regex: "\\B(\\\\)?@fa-([\\S]+)\\b",
+      regex: "\\[fa-([A-Za-z\\-]+) *([0-9]*)\\]",
       replace: function(a, b, c) {
-        return b === "\\" ? a : '<i class="fa fa-' + c + '">' + "</i>"
+        if(c) {
+          return b === "\\" ? a : '<i class="fa fa-' + b + '" style="font-size: ' + c + 'px;">' + "</i>"
+        }
+        else {
+          return b === "\\" ? a : '<i class="fa fa-' + b + '">' + "</i>"
+        }
       }
     }]
   };
